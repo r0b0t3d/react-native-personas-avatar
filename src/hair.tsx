@@ -1,12 +1,15 @@
 import React from 'react';
 import { View, Text} from 'react-native';
+// @ts-ignore
 import { WithLocalSvg } from 'react-native-svg';
 
-export default function Skin() {
+import skins from './assets/skin';
+
+export default function Hair() {
     return (
         <View>
-            <Text>Skin</Text>
-            <WithLocalSvg asset={require('./assets/skin/head-skin1.svg')}/>
+            <Text>Hair</Text>
+            <WithLocalSvg asset={skins.headSkin1}/>
         </View>
     )
 }

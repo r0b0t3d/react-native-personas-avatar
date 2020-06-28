@@ -3,16 +3,27 @@
   "title": "React Native Personas Avatar",
   "version": "1.0.0",
   "description": "TODO",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "files": [
     "README.md",
     "android",
-    "index.js",
     "ios",
+    "lib",
     "react-native-personas-avatar.podspec"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "cp -R lib example/node_modules/@r0b0t3d/react-native-carousel",
+    "build": "rm -rf lib && tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "eslint src/**/*.ts",
+    "fix-code": "prettier-eslint --write 'src/**/*.{ts,tsx}' ",
+    "test": "jest --config jestconfig.json --passWithNoTests",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "publish": "npm run prepare && npm run prepublishOnly"
   },
   "repository": {
     "type": "git",
@@ -40,13 +51,12 @@
     "@types/react-native": "^0.61.23",
     "@typescript-eslint/eslint-plugin": "^2.5.0",
     "@typescript-eslint/parser": "^2.5.0",
+    "copyfiles": "^2.3.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
-    "react": "^16.9.0",
-    "react-native": "^0.62.2",
-    "react-native-svg": "^12.1.0"
+    "typescript": "^3.9.5"
   }
 }
