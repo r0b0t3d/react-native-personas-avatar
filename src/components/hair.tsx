@@ -5,10 +5,10 @@ import { WithLocalSvg } from 'react-native-svg';
 
 import hairs from '../assets/hair';
 
-export default function Hair() {
+export default function Hair({ value }) {
   return (
     <View style={StyleSheet.absoluteFill}>
-      <WithLocalSvg width="100%" height="100%" asset={hairs.long} />
+      <WithLocalSvg width="100%" height="100%" asset={hairs[value]} />
     </View>
   );
 }

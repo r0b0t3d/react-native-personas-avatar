@@ -17,6 +17,7 @@ module.exports = {
       "@typescript-eslint/prefer-interface": "off",
       "@typescript-eslint/ban-ts-ignore": "off",
       "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/no-use-before-define": "off",
       "prettier/prettier": "off"
   },
 };

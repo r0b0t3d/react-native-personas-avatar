@@ -5,10 +5,10 @@ import { WithLocalSvg } from 'react-native-svg';
 
 import mouths from '../assets/mouth';
 
-export default function Mouth() {
+export default function Mouth({ value }) {
   return (
     <View style={StyleSheet.absoluteFill}>
-      <WithLocalSvg width="100%" height="100%" asset={mouths.bigsmile} />
+      <WithLocalSvg width="100%" height="100%" asset={mouths[value]} />
     </View>
   );
 }

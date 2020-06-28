@@ -5,10 +5,10 @@ import { WithLocalSvg } from 'react-native-svg';
 
 import bodies from '../assets/body';
 
-export default function Body() {
+export default function Body({ value }) {
   return (
     <View style={{ ...StyleSheet.absoluteFillObject }}>
-      <WithLocalSvg width="100%" height="100%" asset={bodies.checkered} />
+      <WithLocalSvg width="100%" height="100%" asset={bodies[value]} />
     </View>
   );
 }

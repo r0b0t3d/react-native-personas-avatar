@@ -5,10 +5,10 @@ import { WithLocalSvg } from 'react-native-svg';
 
 import facialHairs from '../assets/facial-hair';
 
-export default function FacialHair() {
+export default function FacialHair({ value }) {
   return (
     <View style={StyleSheet.absoluteFill}>
-      <WithLocalSvg width="100%" height="100%" asset={facialHairs.beardmustacheBlack} />
+      <WithLocalSvg width="100%" height="100%" asset={facialHairs[value]} />
     </View>
   );
 }
