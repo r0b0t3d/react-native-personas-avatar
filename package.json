@@ -3,7 +3,7 @@
   "title": "React Native Personas Avatar",
   "version": "1.0.0",
   "description": "TODO",
-  "main": "index.js",
+  "main": "src/index.js",
   "files": [
     "README.md",
     "android",
@@ -31,10 +31,22 @@
   "readmeFilename": "README.md",
   "peerDependencies": {
     "react": "^16.8.1",
-    "react-native": ">=0.60.0-rc.0 <1.0.x"
+    "react-native": ">=0.60.0-rc.0 <1.0.x",
+    "react-native-svg": "^12.1.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/react": "^16.9.25",
+    "@types/react-native": "^0.61.23",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
     "react": "^16.9.0",
-    "react-native": "^0.61.5"
+    "react-native": "^0.62.2",
+    "react-native-svg": "^12.1.0"
   }
 }
