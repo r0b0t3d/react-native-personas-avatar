@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 // @ts-ignore
 import { WithLocalSvg } from 'react-native-svg';
 
-import facialHairs from '../assets/facial-hair';
+import { facialHairs } from '../assets/facial-hair';
 
 export default function FacialHair({ value }) {
   return (

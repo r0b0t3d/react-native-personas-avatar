@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 // @ts-ignore
 import { WithLocalSvg } from 'react-native-svg';
 
-import bodies from '../assets/body';
+import { bodies } from '../assets/body';
 
 export default function Body({ value }) {
   return (

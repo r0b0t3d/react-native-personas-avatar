@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 // @ts-ignore
 import { WithLocalSvg } from 'react-native-svg';
 
-import eyeses from '../assets/eyes';
+import { eyeses } from '../assets/eyes';
 
 export default function Eyes({ value }) {
   return (
