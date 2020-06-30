@@ -1,20 +1,62 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 // @ts-ignore
-import Svg, { Path, G, Circle, LinearGradient, Defs, Stop, WithLocalSvg } from 'react-native-svg';
-
-import { hairs, hairColors } from '../assets/hair';
+import Svg, { Path, G, Circle, LinearGradient, Defs, Stop } from 'react-native-svg';
 
 export default function Hair({ value, color }) {
-  return (
-    <View style={StyleSheet.absoluteFill}>
-      {/* <WithLocalSvg width="100%" height="100%" asset={hairs[value]} fill={hairColors[color]} /> */}
-      <Hair17 color={hairColors[color]} />
-    </View>
-  );
+  function renderHair() {
+    switch (value) {
+      case 'hair1':
+        return <Hair1 color={color} />;
+      case 'hair2':
+        return <Hair2 color={color} />;
+      case 'hair3':
+        return <Hair3 color={color} />;
+      case 'hair4':
+        return <Hair4 color={color} />;
+      case 'hair5':
+        return <Hair5 color={color} />;
+      case 'hair6':
+        return <Hair6 color={color} />;
+      case 'hair7':
+        return <Hair7 color={color} />;
+      case 'hair8':
+        return <Hair8 color={color} />;
+      case 'hair9':
+        return <Hair9 color={color} />;
+      case 'hair10':
+        return <Hair10 color={color} />;
+      case 'hair11':
+        return <Hair11 color={color} />;
+      case 'hair12':
+        return <Hair12 color={color} />;
+      case 'hair13':
+        return <Hair13 color={color} />;
+      case 'hair14':
+        return <Hair14 color={color} />;
+      case 'hair15':
+        return <Hair15 color={color} />;
+      case 'hair16':
+        return <Hair16 color={color} />;
+      case 'hair17':
+        return <Hair17 color={color} />;
+      case 'hair18':
+        return <Hair18 color={color} />;
+      case 'hair19':
+        return <Hair19 color={color} />;
+      case 'hair20':
+        return <Hair20 color={color} />;
+      default:
+        console.warn('Missing hair', value);
+
+        return null;
+    }
+  }
+
+  return <View style={StyleSheet.absoluteFill}>{renderHair()}</View>;
 }
 
-function Bald() {
+function Hair1({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -26,7 +68,7 @@ function Bald() {
   );
 }
 
-function Balding({ color }) {
+function Hair2({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -42,7 +84,7 @@ function Balding({ color }) {
   );
 }
 
-function BigCurls({ color }) {
+function Hair3({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -53,7 +95,7 @@ function BigCurls({ color }) {
   );
 }
 
-function BobBangs({ color }) {
+function Hair4({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -64,7 +106,7 @@ function BobBangs({ color }) {
   );
 }
 
-function BobCut({ color }) {
+function Hair5({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -75,7 +117,7 @@ function BobCut({ color }) {
   );
 }
 
-function BunCurls({ color }) {
+function Hair6({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -90,7 +132,7 @@ function BunCurls({ color }) {
   );
 }
 
-function BuzzCut({ color }) {
+function Hair7({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -101,7 +143,7 @@ function BuzzCut({ color }) {
   );
 }
 
-function CurlyHighTop({ color }) {
+function Hair8({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -112,7 +154,7 @@ function CurlyHighTop({ color }) {
   );
 }
 
-function Long({ color }) {
+function Hair9({ color }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 64 64">
       <Path
@@ -123,53 +165,6 @@ function Long({ color }) {
         d="M46 28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73V27.5C16 18.387 23.163 11 32 11s16 7.387 16 16.5v1.258a4.474 4.474 0 0 0-2-.73z"
         fill="#fff"
         opacity={0.258}
-      />
-    </Svg>
-  );
-}
-
-function ExtraLong({ color }) {
-  return (
-    <Svg width="100%" height="100%" viewBox="0 0 64 64">
-      <Path
-        d="M46 28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73V27.5C16 18.387 23.163 11 32 11s16 7.387 16 16.5v1.258a4.474 4.474 0 0 0-2-.73zm2 8.242V64H37V46.08A14.036 14.036 0 0 0 45.42 37h.08a4.48 4.48 0 0 0 2.5-.758zM27 64l-11.13-.068.13-27.69a4.48 4.48 0 0 0 2.58.757A14.036 14.036 0 0 0 27 46.081v5.464c.034 1.57.034 5.723 0 12.455z"
-        fill={color}
-      />
-      <Path
-        d="M46 28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73V27.5C16 18.387 23.163 11 32 11s16 7.387 16 16.5v1.258a4.474 4.474 0 0 0-2-.73z"
-        fill="#fff"
-        opacity={0.258}
-      />
-    </Svg>
-  );
-}
-
-function PigTails({ color }) {
-  return (
-    <Svg width="100%" height="100%" viewBox="0 0 64 64">
-      <Path
-        d="M41.001 13.836C41.057 11.156 43.291 9 46.04 9c2.783 0 5.04 2.211 5.04 4.94 0 .079-.003.158-.007.237.018 3.201.708 7.08 1.928 9.823-2.256-.606-4.334-1.62-6.22-2.903A16.67 16.67 0 0 1 48 27.382v1.376a4.474 4.474 0 0 0-2-.73V28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73v-1.375c0-2.227.434-4.35 1.22-6.285C15.334 22.38 13.256 23.394 11 24c1.22-2.743 1.91-6.622 1.928-9.823a4.923 4.923 0 0 1-.006-.238C12.922 11.211 15.178 9 17.96 9c2.748 0 4.982 2.156 5.038 4.836C25.563 12.046 28.662 11 32 11s6.437 1.046 9.001 2.836z"
-        fill={color}
-      />
-      <Path
-        d="M41.013 13.582C45.213 16.545 48 21.767 48 27.714v1.044a4.474 4.474 0 0 0-2-.73V28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73v-1.043c0-5.947 2.788-11.17 6.987-14.132.006.084.01.169.012.254C25.563 12.046 28.662 11 32 11s6.437 1.046 9.001 2.836c.002-.085.006-.17.012-.254z"
-        fill="#fff"
-        opacity={0.259}
-      />
-      <Path
-        d="M18 16a5 5 0 0 1 8.16-3.875c-3.106 1.248-5.739 3.46-7.545 6.279A4.978 4.978 0 0 1 18 16zm23-5a5 5 0 0 1 4.385 7.404c-1.806-2.818-4.44-5.031-7.545-6.279A4.98 4.98 0 0 1 41 11z"
-        fill="#f55d81"
-      />
-    </Svg>
-  );
-}
-
-function ShortcomBover({ color }) {
-  return (
-    <Svg width="100%" height="100%" viewBox="0 0 64 64">
-      <Path
-        d="M42.26 14.63a7.926 7.926 0 0 1 4.6 8.351L46 29c-2.827-1.696-4.695-5.55-5.604-11.561a9.238 9.238 0 0 1-5.692 2.774c-1.823.191-3.391.287-4.704.287-3 0-5.667-.5-8-1.5 0 3.667-1.333 7.167-4 10.5l-.922-8.533A9 9 0 0 1 26.025 11H43a9.237 9.237 0 0 1-.74 3.63z"
-        fill={color}
       />
     </Svg>
   );
@@ -319,6 +314,53 @@ function Hair17({ color }) {
       <Path
         d="M45.934 25.632C43.828 20.564 38.83 17 33 17h-2c-5.83 0-10.828 3.564-12.934 8.632C18.753 18.542 24.73 13 32 13s13.247 5.542 13.934 12.632z"
         fill="#f55d81"
+      />
+    </Svg>
+  );
+}
+
+function Hair18({ color }) {
+  return (
+    <Svg width="100%" height="100%" viewBox="0 0 64 64">
+      <Path
+        d="M46 28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73V27.5C16 18.387 23.163 11 32 11s16 7.387 16 16.5v1.258a4.474 4.474 0 0 0-2-.73zm2 8.242V64H37V46.08A14.036 14.036 0 0 0 45.42 37h.08a4.48 4.48 0 0 0 2.5-.758zM27 64l-11.13-.068.13-27.69a4.48 4.48 0 0 0 2.58.757A14.036 14.036 0 0 0 27 46.081v5.464c.034 1.57.034 5.723 0 12.455z"
+        fill={color}
+      />
+      <Path
+        d="M46 28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73V27.5C16 18.387 23.163 11 32 11s16 7.387 16 16.5v1.258a4.474 4.474 0 0 0-2-.73z"
+        fill="#fff"
+        opacity={0.258}
+      />
+    </Svg>
+  );
+}
+
+function Hair19({ color }) {
+  return (
+    <Svg width="100%" height="100%" viewBox="0 0 64 64">
+      <Path
+        d="M41.001 13.836C41.057 11.156 43.291 9 46.04 9c2.783 0 5.04 2.211 5.04 4.94 0 .079-.003.158-.007.237.018 3.201.708 7.08 1.928 9.823-2.256-.606-4.334-1.62-6.22-2.903A16.67 16.67 0 0 1 48 27.382v1.376a4.474 4.474 0 0 0-2-.73V28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73v-1.375c0-2.227.434-4.35 1.22-6.285C15.334 22.38 13.256 23.394 11 24c1.22-2.743 1.91-6.622 1.928-9.823a4.923 4.923 0 0 1-.006-.238C12.922 11.211 15.178 9 17.96 9c2.748 0 4.982 2.156 5.038 4.836C25.563 12.046 28.662 11 32 11s6.437 1.046 9.001 2.836z"
+        fill={color}
+      />
+      <Path
+        d="M41.013 13.582C45.213 16.545 48 21.767 48 27.714v1.044a4.474 4.474 0 0 0-2-.73V28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73v-1.043c0-5.947 2.788-11.17 6.987-14.132.006.084.01.169.012.254C25.563 12.046 28.662 11 32 11s6.437 1.046 9.001 2.836c.002-.085.006-.17.012-.254z"
+        fill="#fff"
+        opacity={0.259}
+      />
+      <Path
+        d="M18 16a5 5 0 0 1 8.16-3.875c-3.106 1.248-5.739 3.46-7.545 6.279A4.978 4.978 0 0 1 18 16zm23-5a5 5 0 0 1 4.385 7.404c-1.806-2.818-4.44-5.031-7.545-6.279A4.98 4.98 0 0 1 41 11z"
+        fill="#f55d81"
+      />
+    </Svg>
+  );
+}
+
+function Hair20({ color }) {
+  return (
+    <Svg width="100%" height="100%" viewBox="0 0 64 64">
+      <Path
+        d="M42.26 14.63a7.926 7.926 0 0 1 4.6 8.351L46 29c-2.827-1.696-4.695-5.55-5.604-11.561a9.238 9.238 0 0 1-5.692 2.774c-1.823.191-3.391.287-4.704.287-3 0-5.667-.5-8-1.5 0 3.667-1.333 7.167-4 10.5l-.922-8.533A9 9 0 0 1 26.025 11H43a9.237 9.237 0 0 1-.74 3.63z"
+        fill={color}
       />
     </Svg>
   );

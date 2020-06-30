@@ -1,0 +1,33 @@
+export const hairs = {
+  "hair1": true,
+  "hair2": true,
+  "hair3": true,
+  "hair4": true,
+  "hair5": true,
+  "hair6": true,
+  "hair7": true,
+  "hair8": true,
+  "hair9": true,
+  "hair10": true,
+  "hair11": true,
+  "hair12": true,
+  "hair13": true,
+  "hair14": true,
+  "hair15": true,
+  "hair16": true,
+  "hair17": true,
+  "hair18": true,
+  "hair19": true,
+  "hair20": true,
+}
+
+export const hairColors = {
+  hc1: '#362d46',
+  hc2: '#665e97',
+  hc3: '#5ac4d4',
+  hc4: '#dee2f5',
+  hc5: '#6b4445',
+  hc6: '#f29c64',
+  hc7: '#e16381',
+  hc8: '#e15b65',
+};

@@ -8,8 +8,11 @@ import Hair from './components/hair';
 import Mouth from './components/mouth';
 import Nose from './components/nose';
 import { AvatarController, AvatarContext } from './context';
-import { backgroundColors } from './assets/background';
-import { hairColors } from './assets/hair';
+import { backgroundColors } from './constants/background';
+import { facialHairColors } from './constants/facial-hair';
+import { hairColors } from './constants/hair';
+import { bodyColors } from './constants/body';
+import { skinColors } from './constants/skin';
 
 type Props = {
   style: ViewStyle
@@ -18,7 +21,7 @@ type Props = {
 function PersonasAvatar({ style }: Props) {
   const [state, dispatch] = useContext(AvatarContext);
 
-  const { skinColor, hair, hairColor, body, facialHair, facialHairColor, eyes, mouth, nose, backgroundColor } = state;
+  const { skinColor, hair, hairColor, body, bodyColor, facialHair, facialHairColor, eyes, mouth, nose, backgroundColor } = state;
 
   useEffect(() => {
     randomAvatar();
@@ -41,18 +44,18 @@ function PersonasAvatar({ style }: Props) {
         style,
       ]}
     >
-      <Skin color={skinColor} />
-      <Hair value={hair} color={hairColor} />
-      <Body value={body} />
-      <FacialHair value={facialHair} />
+      <Body value={body} color={bodyColors[bodyColor]} />
+      <Skin color={skinColors[skinColor]} />
+      <Hair value={hair} color={hairColors[hairColor]} />
       <Eyes value={eyes} />
       <Mouth value={mouth} />
-      <Nose value={nose} />
+      <FacialHair value={facialHair} color={facialHairColors[facialHairColor]} />
+      <Nose value={nose} color={skinColors[skinColor]} />
     </View>
   );
 }
 
-export default function() {
+export default function({ props }) {
   return (
     <AvatarController>
       <PersonasAvatar />

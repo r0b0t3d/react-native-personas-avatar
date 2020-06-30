@@ -1,13 +1,13 @@
 import React, { useReducer, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { skinColors } from './assets/skin';
-import { hairs, hairColors } from './assets/hair';
-import { facialHairs, facialHairColors } from './assets/facial-hair';
-import { bodies, bodyColors } from './assets/body';
-import { eyeses } from './assets/eyes';
-import mouths from './assets/mouth';
-import noses from './assets/nose';
-import { backgroundColors } from './assets/background';
+import { skinColors } from './constants/skin';
+import { hairs, hairColors } from './constants/hair';
+import { facialHairs, facialHairColors } from './constants/facial-hair';
+import { bodies, bodyColors } from './constants/body';
+import { eyeses } from './constants/eyes';
+import mouths from './constants/mouth';
+import noses from './constants/nose';
+import { backgroundColors } from './constants/background';
 
 type State = {
   skinColor: string;
