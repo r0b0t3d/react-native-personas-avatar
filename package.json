@@ -3,7 +3,7 @@
   "title": "React Native Personas Avatar",
   "version": "0.0.1",
   "description": "A playful avatar generator for the modern age",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "files": [
     "README.md",
     "android",

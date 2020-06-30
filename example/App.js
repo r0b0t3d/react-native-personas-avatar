@@ -10,7 +10,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import PersonasAvatar from 'react-native-personas-avatar';
+import {PersonasAvatar} from 'react-native-personas-avatar';
 
 export default function App() {
   return (
