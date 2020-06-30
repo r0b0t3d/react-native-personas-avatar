@@ -1,7 +1,7 @@
 {
   "name": "react-native-personas-avatar",
   "title": "React Native Personas Avatar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A playful avatar generator for the modern age",
   "main": "lib/index.js",
   "files": [
