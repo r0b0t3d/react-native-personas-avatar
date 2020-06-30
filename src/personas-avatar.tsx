@@ -9,26 +9,54 @@ import Mouth from './components/mouth';
 import Nose from './components/nose';
 import { AvatarController, AvatarContext } from './context';
 import { backgroundColors } from './constants/background';
-import { facialHairColors } from './constants/facial-hair';
-import { hairColors } from './constants/hair';
-import { bodyColors } from './constants/body';
+import { facialHairColors, facialHairs } from './constants/facial-hair';
+import { hairColors, hairs } from './constants/hair';
+import { bodyColors, bodies } from './constants/body';
 import { skinColors } from './constants/skin';
+import { random, combineCharacters } from './utils';
+import { eyeses } from './constants/eyes';
+import mouths from './constants/mouth';
+import noses from './constants/nose';
 
 type Props = {
-  style: ViewStyle
+  style: ViewStyle;
+  characters?: string;
+  onRandomAvatar?: (characters: string) => void;
 }
 
-function PersonasAvatar({ style }: Props) {
+function PersonasAvatar({ style, characters, onRandomAvatar }: Props) {
   const [state, dispatch] = useContext(AvatarContext);
 
   const { skinColor, hair, hairColor, body, bodyColor, facialHair, facialHairColor, eyes, mouth, nose, backgroundColor } = state;
-
+  console.warn(state);
+  
   useEffect(() => {
-    randomAvatar();
-  }, []);
+    if (!characters) {
+      randomAvatar();
+    }
+  }, [characters]);
 
   function randomAvatar() {
-    dispatch({ type: 'random' });
+    const randomCharacters = {
+      skinColor: random(Object.keys(skinColors)),
+      hair: random(Object.keys(hairs)),
+      hairColor: random(Object.keys(hairColors)),
+      facialHair: random(Object.keys(facialHairs)),
+      facialHairColor: random(Object.keys(facialHairColors)),
+      body: random(Object.keys(bodies)),
+      bodyColor: random(Object.keys(bodyColors)),
+      eyes: random(Object.keys(eyeses)),
+      mouth: random(Object.keys(mouths)),
+      nose: random(Object.keys(noses)),
+      backgroundColor: random(Object.keys(backgroundColors)),
+    }
+    const characters = combineCharacters(randomCharacters);
+    if (onRandomAvatar) {
+      console.warn('random', characters);
+      
+      onRandomAvatar(characters);
+    }
+    dispatch({ type: 'updateCharacters', payload: randomCharacters});
   }
 
   return (
@@ -55,10 +83,10 @@ function PersonasAvatar({ style }: Props) {
   );
 }
 
-export default function({ props }) {
+export default function(props: Props) {
   return (
     <AvatarController>
-      <PersonasAvatar />
+      <PersonasAvatar {...props}/>
     </AvatarController>
   );
 }
