@@ -23,11 +23,11 @@ export function parseCharacters(characters: string) {
     hair: array[3],
     mouth: array[4],
     nose: array[5],
-    backgroundColor: array[7],
-    bodyColor: array[8],
-    skinColor: array[9],
-    hairColor: array[10],
-    facialHairColor: array[11],
+    backgroundColor: array[6],
+    skinColor: array[7],
+    hairColor: array[8],
+    facialHairColor: array[9],
+    bodyColor: array[10],
   };
 }
 

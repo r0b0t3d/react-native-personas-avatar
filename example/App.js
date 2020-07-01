@@ -8,14 +8,22 @@
  * https://github.com/facebook/react-native
  */
 
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {PersonasAvatar} from 'react-native-personas-avatar';
 
 export default function App() {
+  const [characters, setCharacters] = useState(
+    'body2|eyes2|facialHair4|hair4|mouth7|nose3|bgc1|sc4|hc7|fhc1|bc2',
+  );
   return (
     <View style={styles.container}>
-      <PersonasAvatar />
+      <PersonasAvatar
+        characters={characters}
+        onNewCharacters={characters => {
+          setCharacters(characters);
+        }}
+      />
     </View>
   );
 }

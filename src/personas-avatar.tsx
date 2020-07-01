@@ -13,7 +13,7 @@ import { facialHairColors, facialHairs } from './constants/facial-hair';
 import { hairColors, hairs } from './constants/hair';
 import { bodyColors, bodies } from './constants/body';
 import { skinColors } from './constants/skin';
-import { random, combineCharacters } from './utils';
+import { random, combineCharacters, parseCharacters } from './utils';
 import { eyeses } from './constants/eyes';
 import mouths from './constants/mouth';
 import noses from './constants/nose';
@@ -21,18 +21,32 @@ import noses from './constants/nose';
 type Props = {
   style: ViewStyle;
   characters?: string;
-  onRandomAvatar?: (characters: string) => void;
-}
+  onNewCharacters?: (characters: string) => void;
+};
 
-function PersonasAvatar({ style, characters, onRandomAvatar }: Props) {
+function PersonasAvatar({ style, characters, onNewCharacters }: Props) {
   const [state, dispatch] = useContext(AvatarContext);
 
-  const { skinColor, hair, hairColor, body, bodyColor, facialHair, facialHairColor, eyes, mouth, nose, backgroundColor } = state;
-  console.warn(state);
-  
+  const {
+    skinColor,
+    hair,
+    hairColor,
+    body,
+    bodyColor,
+    facialHair,
+    facialHairColor,
+    eyes,
+    mouth,
+    nose,
+    backgroundColor,
+  } = state;
+
   useEffect(() => {
     if (!characters) {
       randomAvatar();
+    } else {
+      const components = parseCharacters(characters);      
+      dispatch({ type: 'updateCharacters', payload: components });
     }
   }, [characters]);
 
@@ -49,16 +63,14 @@ function PersonasAvatar({ style, characters, onRandomAvatar }: Props) {
       mouth: random(Object.keys(mouths)),
       nose: random(Object.keys(noses)),
       backgroundColor: random(Object.keys(backgroundColors)),
-    }
+    };
     const characters = combineCharacters(randomCharacters);
-    if (onRandomAvatar) {
-      console.warn('random', characters);
-      
-      onRandomAvatar(characters);
+    if (onNewCharacters) {
+      onNewCharacters(characters);
     }
-    dispatch({ type: 'updateCharacters', payload: randomCharacters});
+    dispatch({ type: 'updateCharacters', payload: randomCharacters });
   }
-
+  
   return (
     <View
       style={[
@@ -86,7 +98,7 @@ function PersonasAvatar({ style, characters, onRandomAvatar }: Props) {
 export default function(props: Props) {
   return (
     <AvatarController>
-      <PersonasAvatar {...props}/>
+      <PersonasAvatar {...props} />
     </AvatarController>
   );
 }

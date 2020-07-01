@@ -59,5 +59,8 @@
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "typescript": "^3.9.5"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

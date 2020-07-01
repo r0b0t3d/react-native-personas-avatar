@@ -3,16 +3,35 @@ _An unofficial React Native library to generate playfull avatar by https://perso
 
 ![Alt text](./screenshot.png?raw=true "Title")
 ## Getting started
+This library use `react-native-svg` to render avatar
 
-`$ yarn add react-native-personas-avatar`
+`yarn add react-native-svg`
+
+`yarn add react-native-personas-avatar`
 
 ## Props
-- `characters`: used to generate the avatar with predefined characters. This value will be returned by `onRandomAvatar`. If null, a random avatar will be generated
-- `onRandomAvatar`: If a random avatar created. It will return characters string to be used with `characters` prop above.
+- `characters`: _used to generate the avatar with predefined characters. This value will be returned by `onNewCharacters`. If null, a random avatar will be generated_
+
+- `onNewCharacters`: _If a new avatar created. It will return characters string to be used with `characters` prop above._
+
 ## Usage
 ```javascript
 import { PersonasAvatar } from 'react-native-personas-avatar';
 
 // Render random avatar
-<PersonasAvatar style={{ width: 200, height: 200 }} />
+<PersonasAvatar
+    style={{
+        width: 200,
+        height: 200
+    }}
+/>
 ```
+
+## Sponsors
+
+<p align="left-align">
+    <a href="https://github.com/spencerlevitt">
+        <img width="100" hspace="5" src="https://avatars3.githubusercontent.com/u/50083586?s=400&u=994eecec461e0346128bf9b939f1b6ab0389d5f2&v=4"/>
+    </a>
+</p>
+
