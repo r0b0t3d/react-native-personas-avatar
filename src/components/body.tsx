@@ -22,7 +22,6 @@ function Body({ value, color }) {
     case 'body4':
       return <Body4 color={color} />;
     default:
-      console.warn('Missing body', value);
       return <Body1 color={color} />;
   }
 }

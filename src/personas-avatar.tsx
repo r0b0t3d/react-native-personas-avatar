@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, forwardRef, useImperativeHandle, Ref, useState } from 'react';
 import { View, ViewStyle } from 'react-native';
 import Skin from './components/skin';
 import Body from './components/body';
@@ -7,7 +7,6 @@ import Eyes from './components/eyes';
 import Hair from './components/hair';
 import Mouth from './components/mouth';
 import Nose from './components/nose';
-import { AvatarController, AvatarContext } from './context';
 import { backgroundColors } from './constants/background';
 import { facialHairColors, facialHairs } from './constants/facial-hair';
 import { hairColors, hairs } from './constants/hair';
@@ -24,8 +23,12 @@ type Props = {
   onNewCharacters?: (characters: string) => void;
 };
 
-function PersonasAvatar({ style, characters, onNewCharacters }: Props) {
-  const [state, dispatch] = useContext(AvatarContext);
+type Methods = {
+  randomize: () => void;
+};
+
+function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<Methods>) {
+  const [state, setState] = useState<any>({});
 
   const {
     skinColor,
@@ -41,16 +44,21 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props) {
     backgroundColor,
   } = state;
 
+  useImperativeHandle(ref, () => ({
+    randomize: randomAvatar,
+  }));
+
   useEffect(() => {
     if (!characters) {
       randomAvatar();
     } else {
-      const components = parseCharacters(characters);      
-      dispatch({ type: 'updateCharacters', payload: components });
+      const components = parseCharacters(characters);
+      setState(components);
     }
   }, [characters]);
 
   function randomAvatar() {
+    debugger
     const randomCharacters = {
       skinColor: random(Object.keys(skinColors)),
       hair: random(Object.keys(hairs)),
@@ -68,9 +76,9 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props) {
     if (onNewCharacters) {
       onNewCharacters(characters);
     }
-    dispatch({ type: 'updateCharacters', payload: randomCharacters });
+    setState(randomCharacters);
   }
-  
+
   return (
     <View
       style={[
@@ -79,26 +87,20 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props) {
           height: 200,
           borderRadius: 1000,
           overflow: 'hidden',
-          backgroundColor: backgroundColors[backgroundColor],
+          backgroundColor: backgroundColors[backgroundColor] || backgroundColors.bgc1,
         },
         style,
       ]}
     >
       <Body value={body} color={bodyColors[bodyColor]} />
-      <Skin color={skinColors[skinColor]} />
-      <Hair value={hair} color={hairColors[hairColor]} />
+      <Skin color={skinColors[skinColor] || skinColors.sc1} />
+      <Hair value={hair} color={hairColors[hairColor] || hairColors.hc1} />
       <Eyes value={eyes} />
       <Mouth value={mouth} />
-      <FacialHair value={facialHair} color={facialHairColors[facialHairColor]} />
+      <FacialHair value={facialHair} color={facialHairColors[facialHairColor] || facialHairColors.fhc1} />
       <Nose value={nose} color={skinColors[skinColor]} />
     </View>
   );
 }
 
-export default function(props: Props) {
-  return (
-    <AvatarController>
-      <PersonasAvatar {...props} />
-    </AvatarController>
-  );
-}
+export default forwardRef(PersonasAvatar);

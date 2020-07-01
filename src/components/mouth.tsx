@@ -21,8 +21,7 @@ export default function Mouth({ value }) {
       case 'mouth7':
         return <Mouth7 />;
       default:
-        console.warn('Missing mouth', value);
-        return null;
+        return <Mouth1 />;
     }
   }
   return <View style={StyleSheet.absoluteFill}>{renderMouth()}</View>;

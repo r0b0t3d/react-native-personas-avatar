@@ -47,9 +47,7 @@ export default function Hair({ value, color }) {
       case 'hair20':
         return <Hair20 color={color} />;
       default:
-        console.warn('Missing hair', value);
-
-        return null;
+        return <Hair1 color={color} />;
     }
   }
 

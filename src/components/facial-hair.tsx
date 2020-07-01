@@ -19,8 +19,7 @@ export default function FacialHair({ value, color }) {
       case 'facialHair6':
         return <None />;
       default:
-        console.warn('Missing facial hair', value);
-        return null;
+        return <None />;
     }
   }
 

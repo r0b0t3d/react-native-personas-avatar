@@ -13,8 +13,7 @@ export default function Nose({ value, color }) {
       case 'nose3':
         return <Nose3 color={color} />;
       default:
-        console.warn('Missing nose', value);
-        return null;
+        return <Nose1 color={color} />;
     }
   }
   return <View style={StyleSheet.absoluteFill}>{renderNose()}</View>;

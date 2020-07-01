@@ -8,24 +8,51 @@
  * https://github.com/facebook/react-native
  */
 
-import React, {Component, useState} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, {Component, useState, useRef} from 'react';
+import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {PersonasAvatar} from 'react-native-personas-avatar';
 
-export default function App() {
-  const [characters, setCharacters] = useState(
-    'body2|eyes2|facialHair4|hair4|mouth7|nose3|bgc1|sc4|hc7|fhc1|bc2',
-  );
-  return (
-    <View style={styles.container}>
-      <PersonasAvatar
-        characters={characters}
-        onNewCharacters={characters => {
-          setCharacters(characters);
-        }}
-      />
-    </View>
-  );
+/** Using component inside Functional component */
+// export default function App() {
+//   const avatar = useRef();
+//   return (
+//     <View style={styles.container}>
+//       <PersonasAvatar
+//         ref={avatar}
+//         onNewCharacters={(characters) => {
+//           //console.warn(characters);
+//         }}
+//       />
+//       <TouchableOpacity
+//         style={styles.randomizeButton}
+//         onPress={() => avatar.current.randomize()}>
+//         <Text style={{color: 'white', fontSize: 16}}>Randomize</Text>
+//       </TouchableOpacity>
+//     </View>
+//   );
+// }
+
+/** Using component inside class component */
+export default class AppComponent extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <PersonasAvatar
+          ref={ref => {
+            this.avatar = ref;
+          }}
+          onNewCharacters={characters => {
+            console.log(characters);
+          }}
+        />
+        <TouchableOpacity
+          style={styles.randomizeButton}
+          onPress={() => this.avatar.randomize()}>
+          <Text style={{color: 'white', fontSize: 16}}>Randomize</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -35,14 +62,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  randomizeButton: {
+    marginTop: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    backgroundColor: 'gray',
+    borderRadius: 5,
   },
 });

@@ -19,8 +19,7 @@ export default function Eyes({ value }) {
       case 'eyes6':
         return <Eyes6 />;
       default:
-        console.warn('Missing eyes', value);
-        return null;
+        return <Eyes1 />;
     }
   }
 
