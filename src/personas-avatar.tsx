@@ -1,5 +1,7 @@
 import React, { useEffect, forwardRef, useImperativeHandle, Ref, useState } from 'react';
 import { View, ViewStyle } from 'react-native';
+// @ts-ignore
+import Svg from 'react-native-svg';
 import Skin from './components/skin';
 import Body from './components/body';
 import FacialHair from './components/facial-hair';
@@ -28,7 +30,7 @@ type Methods = {
 };
 
 function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<Methods>) {
-  const [state, setState] = useState<any>({});
+  const [state, setState] = useState<any>();
 
   const {
     skinColor,
@@ -42,7 +44,7 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<
     mouth,
     nose,
     backgroundColor,
-  } = state;
+  } = state || {};
 
   useImperativeHandle(ref, () => ({
     randomize: randomAvatar,
@@ -79,6 +81,10 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<
     setState(randomCharacters);
   }
 
+  if (!state) {
+    return null;
+  }
+
   return (
     <View
       style={[
@@ -92,13 +98,15 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<
         style,
       ]}
     >
-      <Body value={body} color={bodyColors[bodyColor]} />
-      <Skin color={skinColors[skinColor] || skinColors.sc1} />
-      <Hair value={hair} color={hairColors[hairColor] || hairColors.hc1} />
-      <Eyes value={eyes} />
-      <Mouth value={mouth} />
-      <FacialHair value={facialHair} color={facialHairColors[facialHairColor] || facialHairColors.fhc1} />
-      <Nose value={nose} color={skinColors[skinColor]} />
+      <Svg width="100%" height="100%" viewBox="0 0 64 64">
+        <Body value={body} color={bodyColors[bodyColor]} />
+        <Skin color={skinColors[skinColor] || skinColors.sc1} />
+        <Hair value={hair} color={hairColors[hairColor] || hairColors.hc1} />
+        <Eyes value={eyes} />
+        <Mouth value={mouth} />
+        <FacialHair value={facialHair} color={facialHairColors[facialHairColor] || facialHairColors.fhc1} />
+        <Nose value={nose} color={skinColors[skinColor]} />
+      </Svg>
     </View>
   );
 }

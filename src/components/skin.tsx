@@ -1,12 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 // @ts-ignore
-import Svg, { Path } from 'react-native-svg';
+import { Path } from 'react-native-svg';
 
 export default function Skin({ color  }) {
   return (
-    <View style={StyleSheet.absoluteFill}>
-      <Svg width="100%" height="100%" viewBox="0 0 64 64">
+    <>
         <Path
           d="M37 46.08V52a5 5 0 01-10 0v-5.92A14.036 14.036 0 0118.58 37h-.08a4.5 4.5 0 01-.5-8.973V27c0-7.732 6.268-14 14-14s14 6.268 14 14v1.027A4.5 4.5 0 0145.42 37 14.036 14.036 0 0137 46.081z"
           fill={color}
@@ -19,7 +17,6 @@ export default function Skin({ color  }) {
           fill="#FFF"
           fillOpacity={0.3}
         />
-      </Svg>
-    </View>
+    </>
   );
 }

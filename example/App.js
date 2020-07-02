@@ -13,47 +13,51 @@ import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {PersonasAvatar} from 'react-native-personas-avatar';
 
 /** Using component inside Functional component */
-// export default function App() {
-//   const avatar = useRef();
-//   return (
-//     <View style={styles.container}>
-//       <PersonasAvatar
-//         ref={avatar}
-//         onNewCharacters={(characters) => {
-//           //console.warn(characters);
-//         }}
-//       />
-//       <TouchableOpacity
-//         style={styles.randomizeButton}
-//         onPress={() => avatar.current.randomize()}>
-//         <Text style={{color: 'white', fontSize: 16}}>Randomize</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// }
+export default function App() {
+  const avatar = useRef();
+  const [characters, setCharacters] = useState(
+    'body1|eyes5|facialHair6|hair18|mouth5|nose2|bgc2|sc6|hc8|fhc4|bc2',
+  );
+  return (
+    <View style={styles.container}>
+      <PersonasAvatar
+        ref={avatar}
+        characters={characters}
+        onNewCharacters={characters => {
+          // console.warn(characters);
+        }}
+      />
+      <TouchableOpacity
+        style={styles.randomizeButton}
+        onPress={() => avatar.current.randomize()}>
+        <Text style={{color: 'white', fontSize: 16}}>Randomize</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
 
 /** Using component inside class component */
-export default class AppComponent extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <PersonasAvatar
-          ref={ref => {
-            this.avatar = ref;
-          }}
-          onNewCharacters={characters => {
-            console.log(characters);
-          }}
-        />
-        <TouchableOpacity
-          style={styles.randomizeButton}
-          onPress={() => this.avatar.randomize()}>
-          <Text style={{color: 'white', fontSize: 16}}>Randomize</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+// export default class AppComponent extends Component {
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <PersonasAvatar
+//           ref={ref => {
+//             this.avatar = ref;
+//           }}
+//           onNewCharacters={characters => {
+//             console.log(characters);
+//           }}
+//         />
+//         <TouchableOpacity
+//           style={styles.randomizeButton}
+//           onPress={() => this.avatar.randomize()}>
+//           <Text style={{color: 'white', fontSize: 16}}>Randomize</Text>
+//         </TouchableOpacity>
+//       </View>
+//     );
+//   }
+// }
 
 const styles = StyleSheet.create({
   container: {
