@@ -1,7 +1,7 @@
 # react-native-personas-avatar
 _An unofficial React Native library to generate playfull avatar by https://personas.draftbit.com/_
 
-![Alt text](./screenshot.png?raw=true "Title")
+![Alt text](./avatar.gif?raw=true "Title")
 ## Getting started
 This library use `react-native-svg` to render avatar
 
