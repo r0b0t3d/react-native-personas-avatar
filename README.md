@@ -27,7 +27,7 @@ import { PersonasAvatar } from 'react-native-personas-avatar';
 />
 ```
 
-## Sponsors
+## Collaborators
 
 <p align="left-align">
     <a href="https://github.com/spencerlevitt">
