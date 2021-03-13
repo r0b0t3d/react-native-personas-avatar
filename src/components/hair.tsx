@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 // @ts-ignore
 import Svg, { Path, G, Circle, LinearGradient, Defs, Stop } from 'react-native-svg';
+import { Characters } from '../types';
 
-export default function Hair({ value, color }) {
+export default function Hair({ value, color }: { value: Characters['hair']; color: string }) {
   switch (value) {
     case 'hair1':
       return <Hair1 color={color} />;
@@ -50,7 +50,7 @@ export default function Hair({ value, color }) {
   }
 }
 
-function Hair1({ color }) {
+function Hair1({ color }: { color: string }) {
   return (
     <Path
       d="M22.386 23.438a.75.75 0 1 1-1.342-.67 16.551 16.551 0 0 1 2.202-3.366 11.86 11.86 0 0 1 3-2.522.75.75 0 0 1 .765 1.29 10.36 10.36 0 0 0-2.623 2.205 15.055 15.055 0 0 0-2.002 3.063zM28.75 17a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"
@@ -60,7 +60,7 @@ function Hair1({ color }) {
   );
 }
 
-function Hair2({ color }) {
+function Hair2({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -76,7 +76,7 @@ function Hair2({ color }) {
   );
 }
 
-function Hair3({ color }) {
+function Hair3({ color }: { color: string }) {
   return (
     <Path
       d="M46 28a16 16 0 0 1-.021-.023 2 2 0 0 1-2.104-2.855 2 2 0 0 1-2.729-2.095 2 2 0 0 1-3.303.553l-.012.005v.042a2 2 0 0 1-3.752.965 2 2 0 0 1-3.922.333 2 2 0 0 1-3.865-.598 23.239 23.239 0 0 1-.131-.022 2 2 0 0 1-3.676-.981 20.21 20.21 0 0 1-.83-.326 2 2 0 0 1-2.725 2.123 2 2 0 0 1-.93 2.68v.226A4.5 4.5 0 0 0 18.58 37 14.036 14.036 0 0 0 27 46.081v3.062a3.483 3.483 0 0 1-.652-.68c-.484-.137-.961-.29-1.43-.46a3.46 3.46 0 0 1-2.719-.138 3.461 3.461 0 0 1-1.816-2.166 20.882 20.882 0 0 1-.987-.707 3.462 3.462 0 0 1-2.742-.912 3.464 3.464 0 0 1-1.087-2.877c-.17-.217-.334-.438-.495-.661a3.465 3.465 0 0 1-2.604-1.712 3.467 3.467 0 0 1-.062-3.358c-.046-.13-.092-.26-.136-.39a3.47 3.47 0 0 1-1.077-5.965v-.009a3.47 3.47 0 0 1 .471-6.196 3.47 3.47 0 0 1 2.272-5.788 3.47 3.47 0 0 1 3.876-4.861A3.47 3.47 0 0 1 22.95 8.76a3.47 3.47 0 0 1 5.941-1.833 3.47 3.47 0 0 1 6.218 0A3.47 3.47 0 0 1 41.05 8.76a3.47 3.47 0 0 1 5.138 3.503 3.47 3.47 0 0 1 3.876 4.86 3.47 3.47 0 0 1 2.272 5.789 3.47 3.47 0 0 1 .471 6.196v.01a3.47 3.47 0 0 1-1.077 5.965c-.044.13-.09.26-.136.389a3.467 3.467 0 0 1-.062 3.358 3.465 3.465 0 0 1-2.604 1.712c-.16.223-.326.444-.495.661a3.464 3.464 0 0 1-1.087 2.877 3.462 3.462 0 0 1-2.742.912c-.322.245-.651.48-.987.707a3.461 3.461 0 0 1-1.816 2.166 3.46 3.46 0 0 1-2.719.138c-.469.17-.946.323-1.43.46a3.483 3.483 0 0 1-.652.68v-3.062a14.036 14.036 0 0 0 8.42-9.082l.08.001a4.5 4.5 0 0 0 .5-8.973z"
@@ -85,7 +85,7 @@ function Hair3({ color }) {
   );
 }
 
-function Hair4({ color }) {
+function Hair4({ color }: { color: string }) {
   return (
     <Path
       d="M46 28c-2.177-2.419-3.652-5.54-4.425-9.363-2.252 3.614-5.277 6.235-9.075 7.863-4.667 2-9.5 2.333-14.5 1v.527a4.474 4.474 0 0 0-2 .73V27.5C16 18.387 23.163 11 32 11s16 7.387 16 16.5v1.258a4.474 4.474 0 0 0-2-.73zm-9 21.313v-3.232a14.036 14.036 0 0 0 8.42-9.082l.08.001a4.48 4.48 0 0 0 2.5-.758V47c-3.113 1.211-6.78 1.982-11 2.313zm-10 0c-4.22-.331-7.887-1.102-11-2.313V36.242a4.48 4.48 0 0 0 2.58.757A14.036 14.036 0 0 0 27 46.081z"
@@ -94,7 +94,7 @@ function Hair4({ color }) {
   );
 }
 
-function Hair5({ color }) {
+function Hair5({ color }: { color: string }) {
   return (
     <Path
       d="M46 28c-1.412-1.57-2.53-3.434-3.35-5.595-3.192 1.086-6.742 1.629-10.65 1.629-4.848 0-9.145-.836-12.89-2.506A13.955 13.955 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73v-1.375C16 18.334 23.163 11 32 11s16 7.334 16 16.382v1.376a4.474 4.474 0 0 0-2-.73zm-9 20.06v-1.98A14.036 14.036 0 0 0 45.42 37h.08a4.48 4.48 0 0 0 2.5-.758v6.376c0 .477-.02.949-.059 1.415-3.647 2.044-7.294 3.386-10.941 4.028zm-10 0c-3.647-.64-7.294-1.983-10.941-4.027A16.99 16.99 0 0 1 16 42.618v-6.376a4.48 4.48 0 0 0 2.58.757A14.036 14.036 0 0 0 27 46.081z"
@@ -103,7 +103,7 @@ function Hair5({ color }) {
   );
 }
 
-function Hair6({ color }) {
+function Hair6({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -118,7 +118,7 @@ function Hair6({ color }) {
   );
 }
 
-function Hair7({ color }) {
+function Hair7({ color }: { color: string }) {
   return (
     <Path
       d="M46 27v3c-1.333-1.667-2.667-4.667-4-9-2.657 1.333-5.99 2-10 2s-7.343-.667-10-2c-1.333 3.667-2.667 6.333-4 8v-2c0-7.732 6.268-14 14-14s14 6.268 14 14z"
@@ -127,7 +127,7 @@ function Hair7({ color }) {
   );
 }
 
-function Hair8({ color }) {
+function Hair8({ color }: { color: string }) {
   return (
     <Path
       d="M33.792 9a2 2 0 0 1 3.816 0h.558a2 2 0 0 1 3.83.668c.075.03.15.063.224.095a2 2 0 0 1 3.13 2.298l.152.179a2 2 0 0 1 1.775 3.41c.042.156.08.314.114.473a2 2 0 0 1 .018 3.748l-.047.324a2 2 0 0 1-.022 3.62 1.994 1.994 0 0 1 .159.852 1.8 1.8 0 0 1-1.22 2.924L46 29.5c-.44-.659-.842-1.48-1.209-2.465a1.797 1.797 0 0 1-.437-.796 1.998 1.998 0 0 1-.563-2.679 38.655 38.655 0 0 1-.022-.098 2 2 0 0 1-.956-2.937 1.994 1.994 0 0 1-2.44-.323 2 2 0 0 1-3.724.057l-.312.032a2 2 0 0 1-3.573.203l-.23.003a2 2 0 0 1-3.521-.099 36.13 36.13 0 0 1-.41-.031 2 2 0 0 1-3.676-.165 1.997 1.997 0 0 1-3.04-.22 19.96 19.96 0 0 1-.023.155 2 2 0 0 1-.701 3.35 2 2 0 0 1-1.397 3.095A24.897 24.897 0 0 1 18 29.5l-.188-1.923a1.8 1.8 0 0 1-.338-3.465l-.012-.126a2 2 0 0 1-.38-3.889l-.013-.144a2 2 0 0 1 .067-3.92 8.93 8.93 0 0 1 .041-.177 2 2 0 0 1 1.46-3.627 2 2 0 0 1 3.066-2.326 2 2 0 0 1 3.835-.894 9 9 0 0 1 .052-.003A2 2 0 0 1 29.408 9h.184a2 2 0 0 1 3.816 0z"
@@ -136,7 +136,7 @@ function Hair8({ color }) {
   );
 }
 
-function Hair9({ color }) {
+function Hair9({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -152,7 +152,7 @@ function Hair9({ color }) {
   );
 }
 
-function Hair10({ color }) {
+function Hair10({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -168,7 +168,7 @@ function Hair10({ color }) {
   );
 }
 
-function Hair11({ color }) {
+function Hair11({ color }: { color: string }) {
   return (
     <>
       <G transform="translate(18 8)">
@@ -190,7 +190,7 @@ function Hair11({ color }) {
   );
 }
 
-function Hair12({ color }) {
+function Hair12({ color }: { color: string }) {
   return (
     <>
       <Defs>
@@ -212,7 +212,7 @@ function Hair12({ color }) {
   );
 }
 
-function Hair13({ color }) {
+function Hair13({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -238,7 +238,7 @@ function Hair13({ color }) {
   );
 }
 
-function Hair14({ color }) {
+function Hair14({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -254,7 +254,7 @@ function Hair14({ color }) {
   );
 }
 
-function Hair15({ color }) {
+function Hair15({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -270,7 +270,7 @@ function Hair15({ color }) {
   );
 }
 
-function Hair16({ color }) {
+function Hair16({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -286,7 +286,7 @@ function Hair16({ color }) {
   );
 }
 
-function Hair17({ color }) {
+function Hair17({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -301,7 +301,7 @@ function Hair17({ color }) {
   );
 }
 
-function Hair18({ color }) {
+function Hair18({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -317,7 +317,7 @@ function Hair18({ color }) {
   );
 }
 
-function Hair19({ color }) {
+function Hair19({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -337,7 +337,7 @@ function Hair19({ color }) {
   );
 }
 
-function Hair20({ color }) {
+function Hair20({ color }: { color: string }) {
   return (
     <Path
       d="M42.26 14.63a7.926 7.926 0 0 1 4.6 8.351L46 29c-2.827-1.696-4.695-5.55-5.604-11.561a9.238 9.238 0 0 1-5.692 2.774c-1.823.191-3.391.287-4.704.287-3 0-5.667-.5-8-1.5 0 3.667-1.333 7.167-4 10.5l-.922-8.533A9 9 0 0 1 26.025 11H43a9.237 9.237 0 0 1-.74 3.63z"

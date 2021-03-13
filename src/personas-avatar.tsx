@@ -1,5 +1,5 @@
-import React, { useEffect, forwardRef, useImperativeHandle, Ref, useState } from 'react';
-import { View, ViewStyle } from 'react-native';
+import React, { useEffect, forwardRef, useImperativeHandle, Ref, useState, useMemo, useCallback } from 'react';
+import { StyleProp, View, ViewStyle } from 'react-native';
 // @ts-ignore
 import Svg from 'react-native-svg';
 import Skin from './components/skin';
@@ -14,10 +14,11 @@ import { facialHairColors, facialHairs } from './constants/facial-hair';
 import { hairColors, hairs } from './constants/hair';
 import { bodyColors, bodies } from './constants/body';
 import { skinColors } from './constants/skin';
-import { random, combineCharacters, parseCharacters } from './utils';
+import { random, combineCharacters, parseCharacters, DEFAULT_CHARACTERS } from './utils';
 import { eyeses } from './constants/eyes';
 import mouths from './constants/mouth';
 import noses from './constants/nose';
+import { Characters } from './types';
 
 type Props = {
   style: ViewStyle;
@@ -30,7 +31,7 @@ type Methods = {
 };
 
 function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<Methods>) {
-  const [state, setState] = useState<any>();
+  const [internalCharacters, setCharacters] = useState<Characters>(DEFAULT_CHARACTERS);
 
   const {
     skinColor,
@@ -44,7 +45,7 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<
     mouth,
     nose,
     backgroundColor,
-  } = state || {};
+  } = internalCharacters;
 
   useImperativeHandle(ref, () => ({
     randomize: randomAvatar,
@@ -55,12 +56,11 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<
       randomAvatar();
     } else {
       const components = parseCharacters(characters);
-      setState(components);
+      setCharacters(components);
     }
   }, [characters]);
 
-  function randomAvatar() {
-    debugger
+  const randomAvatar = useCallback(() => {
     const randomCharacters = {
       skinColor: random(Object.keys(skinColors)),
       hair: random(Object.keys(hairs)),
@@ -78,33 +78,35 @@ function PersonasAvatar({ style, characters, onNewCharacters }: Props, ref: Ref<
     if (onNewCharacters) {
       onNewCharacters(characters);
     }
-    setState(randomCharacters);
-  }
+    setCharacters(randomCharacters);
+  }, [onNewCharacters]);
 
-  if (!state) {
+  const containerStyle: StyleProp<ViewStyle> = useMemo(() => ({
+    width: 200,
+    height: 200,
+    borderRadius: 1000,
+    overflow: 'hidden',
+    backgroundColor: backgroundColors[backgroundColor],
+  }), [backgroundColor]);
+
+  if (!internalCharacters) {
     return null;
   }
 
   return (
     <View
       style={[
-        {
-          width: 200,
-          height: 200,
-          borderRadius: 1000,
-          overflow: 'hidden',
-          backgroundColor: backgroundColors[backgroundColor] || backgroundColors.bgc1,
-        },
+        containerStyle,
         style,
       ]}
     >
       <Svg width="100%" height="100%" viewBox="0 0 64 64">
         <Body value={body} color={bodyColors[bodyColor]} />
-        <Skin color={skinColors[skinColor] || skinColors.sc1} />
-        <Hair value={hair} color={hairColors[hairColor] || hairColors.hc1} />
+        <Skin color={skinColors[skinColor]} />
+        <Hair value={hair} color={hairColors[hairColor]} />
         <Eyes value={eyes} />
         <Mouth value={mouth} />
-        <FacialHair value={facialHair} color={facialHairColors[facialHairColor] || facialHairColors.fhc1} />
+        <FacialHair value={facialHair} color={facialHairColors[facialHairColor]} />
         <Nose value={nose} color={skinColors[skinColor]} />
       </Svg>
     </View>

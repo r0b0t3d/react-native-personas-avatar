@@ -1,8 +1,9 @@
 import React from 'react';
 // @ts-ignore
 import { Path } from 'react-native-svg';
+import { Characters } from '../types';
 
-export default function Eyes({ value }) {
+export default function Eyes({ value }: { value: Characters['eyes']}) {
   switch (value) {
     case 'eyes1':
       return <Eyes1 />;

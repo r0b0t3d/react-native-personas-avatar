@@ -1,8 +1,9 @@
 import React from 'react';
 // @ts-ignore
 import { Path } from 'react-native-svg';
+import { Characters } from '../types';
 
-export default function Nose({ value, color }) {
+export default function Nose({ value, color }: { value: Characters['nose']; color: string}) {
   switch (value) {
     case 'nose1':
       return <Nose1 color={color} />;
@@ -15,7 +16,7 @@ export default function Nose({ value, color }) {
   }
 }
 
-function Nose1({ color }) {
+function Nose1({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -34,7 +35,7 @@ function Nose1({ color }) {
   );
 }
 
-function Nose2({ color }) {
+function Nose2({ color }: { color: string }) {
   return (
     <>
       <Path
@@ -52,7 +53,7 @@ function Nose2({ color }) {
     </>
   );
 }
-function Nose3({ color }) {
+function Nose3({ color }: { color: string }) {
   return (
     <>
       <Path

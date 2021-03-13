@@ -1,8 +1,9 @@
 import React from 'react';
 // @ts-ignore
 import { Path } from 'react-native-svg';
+import { Characters } from '../types';
 
-export default function Body({ value, color }) {
+export default function Body({ value, color }: { value: Characters['body']; color: string }) {
   switch (value) {
     case 'body1':
       return <Body1 color={color} />;
@@ -17,25 +18,25 @@ export default function Body({ value, color }) {
   }
 }
 
-function Body1({ color }) {
+function Body1({ color }: { color: string }) {
   return (
     <Path fill={color} d="M27 49v3a5 5 0 0010 0v-3l6.647 2.045A9 9 0 0150 59.647V64H14v-4.353a9 9 0 016.353-8.602z" />
   );
 }
 
-function Body2({ color }) {
+function Body2({ color }: { color: string }) {
   return (
     <Path fill={color} d="M27 51v.47a5 5 0 0010 0V51c7.063 1.523 12.93 6.735 16 13H11c3.07-6.265 8.937-11.477 16-13z" />
   );
 }
 
-function Body3({ color }) {
+function Body3({ color }: { color: string }) {
   return (
     <Path fill={color} d="M27 49v3a5 5 0 0010 0v-3l6.647 2.045A9 9 0 0150 59.647V64H14v-4.353a9 9 0 016.353-8.602z" />
   );
 }
 
-function Body4({ color }) {
+function Body4({ color }: { color: string }) {
   return (
     <>
       <Path fill={color} d="M27 49v3a5 5 0 0010 0v-3l6.647 2.045A9 9 0 0150 59.647V64H14v-4.353a9 9 0 016.353-8.602z" />
