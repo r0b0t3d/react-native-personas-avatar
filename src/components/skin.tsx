@@ -2,7 +2,7 @@ import React from 'react';
 // @ts-ignore
 import { Path } from 'react-native-svg';
 
-export default function Skin({ color  }) {
+export default function Skin({ color }: { color: string }) {
   return (
     <>
         <Path

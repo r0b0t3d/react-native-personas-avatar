@@ -1,8 +1,9 @@
 import React from 'react';
 // @ts-ignore
 import { G, Path, Circle, Ellipse } from 'react-native-svg';
+import { Characters } from '../types';
 
-export default function Mouth({ value }) {
+export default function Mouth({ value }: { value: Characters['mouth']}) {
   switch (value) {
     case 'mouth1':
       return <Mouth1 />;

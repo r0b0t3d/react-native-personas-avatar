@@ -1,18 +1,14 @@
 {
   "name": "react-native-personas-avatar",
   "title": "React Native Personas Avatar",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "A playful avatar generator for the modern age",
   "main": "lib/index.js",
   "files": [
     "README.md",
-    "android",
-    "ios",
-    "lib",
-    "react-native-personas-avatar.podspec"
+    "lib"
   ],
   "scripts": {
-    "deploy": "cp -R lib example/node_modules/react-native-personas-avatar",
     "build": "rm -rf lib && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "eslint src/**/*.ts",
