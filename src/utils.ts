@@ -1,4 +1,4 @@
-import { Characters } from "./types";
+import { Characters } from './types';
 
 export const DEFAULT_CHARACTERS: Characters = {
   skinColor: 'sc1',
@@ -33,7 +33,7 @@ export function combineCharacters({
 export function parseCharacters(characters: string): Characters {
   const array = characters.split('|');
   if (array.length < 11) {
-    console.log("Invalid characters.");    
+    console.log('Invalid characters.');
     return DEFAULT_CHARACTERS;
   }
   return {
